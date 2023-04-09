@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Quiz App | Sakshi Bansal</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+<!-- ChatBot -->
+<link rel="stylesheet" type="text/css" href="css/jquery.convform.css">
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.convform.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+</head>
+<style>
+    body {
+      background-image: url('file:///C:/Users/saksh/Desktop/ClearExam%20SME%20Tasks/quizimage.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed; 
+      background-size: 100% ;
+    }
+    </style>
+<body>
+<div class="chat_icon">
+	<i class="fa fa-comments" aria-hidden="true"></i>
+</div>
+
+	<div class="chat_box">
+		<div class="my-conv-form-wrapper">
+			<form action="" method="GET" class="hidden">
+
+      <select data-conv-question="Hello! How can I help you?" name="category">
+        <option value="can'tstartthequiz">Can't start the quiz</option>
+        <option value="lookingforademo">Looking for a demo</option>
+      </select>
+
+      <div data-conv-fork="category">
+        <div data-conv-case="can'tstartthequiz">
+          <input type="text" name="emaildetails" data-conv-question="Please, tell me your email id?">    
+        </div>
+        <div data-conv-case="lookingforademo" data-conv-fork="first-question2">
+          <input type="text" name="Name" data-conv-question="Got it. I’ll see if there is someone available to help you. <br> In the meantime, I’d like to collect some quick details of yours."> 
+        </div>
+      </div>
+
+      <input type="text" name="name" data-conv-question="Okay! Please wait for a minute">
+
+      <input type="text" data-conv-question="Hi {name}, <br> It's a pleasure to meet you." data-no-answer="true">
+
+      <input data-conv-question="Enter your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="email" name="email" required placeholder="What's your e-mail?">
+
+      <select data-conv-question="Please Confirm">
+        <option value="Yes">Confirm</option>
+      </select>
+
+  	</form>
+		</div>
+	</div>
+</body>
+</html>
+<body>
+<div id "loginWrapper" class="wrapper">
+    <header>Login Form</header>
+    <form id="loginForm" action="#">
+      <div class="field email">
+        <div class="input-area">
+          <input type="text" placeholder="Email Address">
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Email can't be blank</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+          <input type="password" placeholder="Password">
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+      </div>
+      <input id = "login" onclick="Login()" type="submit" value="Login">
+	  <div id="invalidCreds" style="visibility: hidden; color: #dc3545;" class="error error-txt">Invalid Credentials</div>
+    </form>
+  </div>
+    <!-- start Quiz button -->
+    <div id = "btn_start" class="start_btn" style="
+    visibility: hidden;
+"><button>Play Quiz</button></div>
+    </body>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Quiz Guide</span></div>
+        <div class="info-list">
+            <div class="info">1. Your test contains 15 multiple choice questions with only one answer.</div>
+            <div class="info">2. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">3. Once you select your answer, it can't be undone.</div>
+            <div class="info">4. You can't select any option once time goes off.</div>
+            <div class="info">5. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">6. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">Congratulations!!!</div>
+        <div class="complete_text"></div>You've successfully completed the Quiz &#128522;
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+        <body>
+            <a href="starrating.html">
+                <button>Feedback</button>
+            </a>
+        </body>
+        
+    </div>
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="questions.js"></script>
+	<script src="LoginIdPassword.js"></script>
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="script.js"></script>
+</body>
+</html>
+</html>
